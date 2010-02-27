@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Urbtransp</string>
+	<string name="api_key">0T6bueW_ikf-9B4UuuwheR-MpXW-Lixj3nl4pbA</string>
+	<string name="debug_key">0T6bueW_ikf-ATfkTH6---oVtY4-Qibz3feRTDQ</string>
+<string name="no_lines">Nenhuma linha encontrada</string>
+</resources>
