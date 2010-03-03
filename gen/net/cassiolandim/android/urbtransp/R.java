@@ -18,7 +18,8 @@ public final class R {
         public static final int area_sul_home=0x7f020004;
         public static final int area_sul_nav=0x7f020005;
         public static final int area_todas_nav=0x7f020006;
-        public static final int icon=0x7f020007;
+        public static final int ic_map_marker=0x7f020007;
+        public static final int icon=0x7f020008;
     }
     public static final class id {
         public static final int bus_line_details_area_img=0x7f050001;

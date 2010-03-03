@@ -59,7 +59,7 @@ public class BusLineDetailsActivity extends Activity {
 	        return true;
 	        
 	    case MENU_ON_MAP:
-	    	Intent i3 = new Intent(this, BusMapActivity.class);
+	    	Intent i3 = new Intent(this, BusLineMapActivity.class);
 	    	i3.putExtra(BusLine.BUS_LINE_ID, line.id);
 	    	startActivity(i3);
 	        return true;

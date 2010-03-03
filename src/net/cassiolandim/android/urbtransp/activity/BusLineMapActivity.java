@@ -48,7 +48,7 @@ public class BusLineMapActivity extends MapActivity {
         
         locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
         mapView = (MapView) findViewById(R.id.mapview);
-        drawable = this.getResources().getDrawable(android.R.drawable.ic_input_add);
+        drawable = this.getResources().getDrawable(R.drawable.ic_map_marker);
         linearLayout = (LinearLayout) findViewById(R.id.zoomview);
         linearLayout.addView(mapView.getZoomControls());
 
@@ -58,7 +58,7 @@ public class BusLineMapActivity extends MapActivity {
         itemizedOverlay = new ListItemizedOverlay(drawable);
         
         for(BusStop stop : stops){
-	        OverlayItem overlayitem = new OverlayItem(stop.geoPoint, "", "");
+	        OverlayItem overlayitem = new OverlayItem(stop.geoPoint, stop.id, stop.address);
 	        itemizedOverlay.addOverlay(overlayitem);
 	        mapOverlays.add(itemizedOverlay);
         }
