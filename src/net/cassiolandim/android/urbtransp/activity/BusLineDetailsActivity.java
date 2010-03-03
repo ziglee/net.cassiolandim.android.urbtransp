@@ -45,9 +45,9 @@ public class BusLineDetailsActivity extends Activity {
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 	    menu.add(0, MENU_TIME_TABLE, 0, "Horários").setIcon(android.R.drawable.ic_menu_info_details);
-	    menu.add(0, MENU_ON_MAP, 2, "No mapa").setIcon(android.R.drawable.ic_menu_mapmode);
-	    menu.add(0, MENU_ITINERARY_GOING, 3, "Caminho ida");
-	    menu.add(0, MENU_ITINERARY_BACK, 4, "Caminho volta");
+	    menu.add(0, MENU_ON_MAP, 1, "No mapa").setIcon(android.R.drawable.ic_menu_mapmode);
+	    menu.add(0, MENU_ITINERARY_GOING, 2, "Caminho ida");
+	    menu.add(0, MENU_ITINERARY_BACK, 3, "Caminho volta");
 	    return true;
 	}
 

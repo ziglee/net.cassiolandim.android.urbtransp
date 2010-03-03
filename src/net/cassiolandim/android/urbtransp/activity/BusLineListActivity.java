@@ -3,7 +3,6 @@ package net.cassiolandim.android.urbtransp.activity;
 import java.util.List;
 
 import net.cassiolandim.android.urbtransp.R;
-import net.cassiolandim.android.urbtransp.entity.Area;
 import net.cassiolandim.android.urbtransp.entity.BusLine;
 import net.cassiolandim.android.urbtransp.service.BusLineService;
 import net.cassiolandim.android.urbtransp.service.BusLineServiceFake;
@@ -19,7 +18,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class BusLineListActivity extends ListActivity {
 
@@ -39,7 +37,6 @@ public class BusLineListActivity extends ListActivity {
 		searchButton = (Button)findViewById(R.id.bus_line_search_button);		
 		
 		searchButton.setOnClickListener(new View.OnClickListener() {
-			@Override
 			public void onClick(View v) {
 				String text = searchText.getText().toString();
 				busLines = busLineService.find(text);
