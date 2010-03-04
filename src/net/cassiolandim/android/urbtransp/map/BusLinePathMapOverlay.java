@@ -2,23 +2,23 @@ package net.cassiolandim.android.urbtransp.map;
 
 import java.util.List;
 
-import net.cassiolandim.android.urbtransp.entity.BusStop;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.Paint.Style;
 
+import com.google.android.maps.GeoPoint;
 import com.google.android.maps.MapView;
 import com.google.android.maps.Overlay;
 import com.google.android.maps.Projection;
 
-public class BusLinePathOverlay extends Overlay {
+public class BusLinePathMapOverlay extends Overlay {
 
-	private List<BusStop> stops;
+	private List<GeoPoint> path;
 	
-	public BusLinePathOverlay(List<BusStop> stops) {
+	public BusLinePathMapOverlay(List<GeoPoint> path) {
 		super();
-		this.stops = stops;
+		this.path = path;
 	}
 
 	@Override
@@ -28,14 +28,14 @@ public class BusLinePathOverlay extends Overlay {
 		Projection projection = mapView.getProjection();
 		
 		Paint paint = new Paint();
-        paint.setTextSize(14); 
+        //paint.setTextSize(14);
+		paint.setStrokeWidth(3);
         paint.setStyle(Style.FILL);
         paint.setARGB(255, 80, 150, 30); // Nice strong Android-Green
 
         Point previousPoint = null;
-        for(BusStop stop : stops){
-        	Point point = projection.toPixels(stop.geoPoint, null);
-        	canvas.drawPoint(point.x, point.y, paint);
+        for(GeoPoint stop : path){
+        	Point point = projection.toPixels(stop, null);
         	
         	if(previousPoint != null){
         		canvas.drawLine(previousPoint.x, previousPoint.y, point.x, point.y, paint);

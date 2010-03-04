@@ -6,7 +6,7 @@ import net.cassiolandim.android.urbtransp.R;
 import net.cassiolandim.android.urbtransp.entity.BusLine;
 import net.cassiolandim.android.urbtransp.map.ListItemizedOverlay;
 import net.cassiolandim.android.urbtransp.service.BusLineService;
-import net.cassiolandim.android.urbtransp.service.BusLineServiceFake;
+import net.cassiolandim.android.urbtransp.service.FakeBusLineService;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -26,7 +26,7 @@ import com.google.android.maps.OverlayItem;
 
 public class BusMapActivity extends MapActivity {
 	
-	private BusLineService busLineService = new BusLineServiceFake();
+	private BusLineService busLineService = new FakeBusLineService();
 	private MapView mapView;
 	private MapController mapController;
 	private LinearLayout linearLayout;

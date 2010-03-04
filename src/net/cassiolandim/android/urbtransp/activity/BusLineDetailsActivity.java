@@ -3,7 +3,7 @@ package net.cassiolandim.android.urbtransp.activity;
 import net.cassiolandim.android.urbtransp.R;
 import net.cassiolandim.android.urbtransp.entity.BusLine;
 import net.cassiolandim.android.urbtransp.service.BusLineService;
-import net.cassiolandim.android.urbtransp.service.BusLineServiceFake;
+import net.cassiolandim.android.urbtransp.service.FakeBusLineService;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 public class BusLineDetailsActivity extends Activity {
 
-	private BusLineService busLineService = new BusLineServiceFake();
+	private BusLineService busLineService = new FakeBusLineService();
 	private BusLine line;
 	
 	private static final int MENU_TIME_TABLE = 1;

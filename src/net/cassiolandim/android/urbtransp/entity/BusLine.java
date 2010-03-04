@@ -2,6 +2,9 @@ package net.cassiolandim.android.urbtransp.entity;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
+
+import com.google.android.maps.GeoPoint;
 
 public class BusLine implements Serializable {
 
@@ -17,8 +20,9 @@ public class BusLine implements Serializable {
 	public LineKind lineKind;
 	public ArrayList<ItineraryPoint> wayGoing;
 	public ArrayList<ItineraryPoint> wayBack;
+	public List<GeoPoint> path;
 	
-	public BusLine(Long id, String number, String name, Area area, LineKind lineKind, ArrayList<ItineraryPoint> wayGoing, ArrayList<ItineraryPoint> wayBack) {
+	public BusLine(Long id, String number, String name, Area area, LineKind lineKind, ArrayList<ItineraryPoint> wayGoing, ArrayList<ItineraryPoint> wayBack, List<GeoPoint> path) {
 		this.id = id;
 		this.number = number;
 		this.name = name;
@@ -26,6 +30,7 @@ public class BusLine implements Serializable {
 		this.lineKind = lineKind;
 		this.wayGoing = wayGoing;
 		this.wayBack = wayBack;
+		this.path = path;
 	}
 
 	@Override

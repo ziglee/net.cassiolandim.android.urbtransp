@@ -5,11 +5,13 @@ import java.util.List;
 import net.cassiolandim.android.urbtransp.R;
 import net.cassiolandim.android.urbtransp.entity.BusLine;
 import net.cassiolandim.android.urbtransp.entity.BusStop;
-import net.cassiolandim.android.urbtransp.map.BusLinePathOverlay;
+import net.cassiolandim.android.urbtransp.map.BusLinePathMapOverlay;
+import net.cassiolandim.android.urbtransp.map.BusStopMapOverlay;
+import net.cassiolandim.android.urbtransp.service.BusLineService;
+import net.cassiolandim.android.urbtransp.service.FakeBusLineService;
 import net.cassiolandim.android.urbtransp.service.BusStopService;
-import net.cassiolandim.android.urbtransp.service.BusStopServiceFake;
+import net.cassiolandim.android.urbtransp.service.FakeBusStopService;
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.Menu;
@@ -25,13 +27,14 @@ import com.google.android.maps.Overlay;
 
 public class BusLineMapActivity extends MapActivity {
 	
-	private BusStopService busLineService = new BusStopServiceFake();
+	private BusLineService busLineService = new FakeBusLineService();
+	private BusStopService busStopService = new FakeBusStopService();
+	private BusLine busLine;
 	private List<BusStop> stops;
 	private MapView mapView;
 	private MapController mapController;
 	private LinearLayout linearLayout;
 	private List<Overlay> mapOverlays;
-	private Drawable drawable;
 	private LocationManager locationManager;
 
 	private static final int MENU_MY_POSITION = 1;
@@ -42,21 +45,22 @@ public class BusLineMapActivity extends MapActivity {
         
         Bundle extras = getIntent().getExtras();
 	    Long id = extras.getLong(BusLine.BUS_LINE_ID);
-	    stops = busLineService.findByLine(id);
+	    busLine = busLineService.findById(id);
+	    stops = busStopService.findByLine(id);
         
         locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
         mapView = (MapView) findViewById(R.id.mapview);
-        drawable = this.getResources().getDrawable(R.drawable.ic_map_marker);
         linearLayout = (LinearLayout) findViewById(R.id.zoomview);
         linearLayout.addView(mapView.getZoomControls());
 
         mapOverlays = mapView.getOverlays();
         mapController = mapView.getController();
         
-        mapOverlays.add(new BusLinePathOverlay(stops));
+        mapOverlays.add(new BusLinePathMapOverlay(busLine.path));
+        mapOverlays.add(new BusStopMapOverlay(stops));
         
-		mapController.setCenter(new GeoPoint(-16695600,-49276500));
-        mapController.setZoom(20);
+		mapController.setCenter(busLine.path.get(0));
+        mapController.setZoom(15);
     }
 	
 	@Override

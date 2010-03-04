@@ -5,7 +5,7 @@ import java.util.List;
 import net.cassiolandim.android.urbtransp.R;
 import net.cassiolandim.android.urbtransp.entity.BusLine;
 import net.cassiolandim.android.urbtransp.service.BusLineService;
-import net.cassiolandim.android.urbtransp.service.BusLineServiceFake;
+import net.cassiolandim.android.urbtransp.service.FakeBusLineService;
 import android.app.Activity;
 import android.app.ListActivity;
 import android.content.Intent;
@@ -21,7 +21,7 @@ import android.widget.TextView;
 
 public class BusLineListActivity extends ListActivity {
 
-	private BusLineService busLineService = new BusLineServiceFake();
+	private BusLineService busLineService = new FakeBusLineService();
 	private List<BusLine> busLines;
 	private EditText searchText;
 	private Button searchButton;
@@ -31,7 +31,7 @@ public class BusLineListActivity extends ListActivity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.busline_list);
 		
-		busLineService = new BusLineServiceFake();
+		busLineService = new FakeBusLineService();
 		
 		searchText = (EditText)findViewById(R.id.bus_line_search_field);
 		searchButton = (Button)findViewById(R.id.bus_line_search_button);		
