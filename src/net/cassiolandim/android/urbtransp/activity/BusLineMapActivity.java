@@ -5,7 +5,7 @@ import java.util.List;
 import net.cassiolandim.android.urbtransp.R;
 import net.cassiolandim.android.urbtransp.entity.BusLine;
 import net.cassiolandim.android.urbtransp.entity.BusStop;
-import net.cassiolandim.android.urbtransp.map.ListItemizedOverlay;
+import net.cassiolandim.android.urbtransp.map.BusLinePathOverlay;
 import net.cassiolandim.android.urbtransp.service.BusStopService;
 import net.cassiolandim.android.urbtransp.service.BusStopServiceFake;
 import android.content.Context;
@@ -22,7 +22,6 @@ import com.google.android.maps.MapActivity;
 import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
 import com.google.android.maps.Overlay;
-import com.google.android.maps.OverlayItem;
 
 public class BusLineMapActivity extends MapActivity {
 	
@@ -33,7 +32,6 @@ public class BusLineMapActivity extends MapActivity {
 	private LinearLayout linearLayout;
 	private List<Overlay> mapOverlays;
 	private Drawable drawable;
-	private ListItemizedOverlay itemizedOverlay;
 	private LocationManager locationManager;
 
 	private static final int MENU_MY_POSITION = 1;
@@ -55,16 +53,10 @@ public class BusLineMapActivity extends MapActivity {
         mapOverlays = mapView.getOverlays();
         mapController = mapView.getController();
         
-        itemizedOverlay = new ListItemizedOverlay(drawable);
-        
-        for(BusStop stop : stops){
-	        OverlayItem overlayitem = new OverlayItem(stop.geoPoint, stop.id, stop.address);
-	        itemizedOverlay.addOverlay(overlayitem);
-	        mapOverlays.add(itemizedOverlay);
-        }
+        mapOverlays.add(new BusLinePathOverlay(stops));
         
 		mapController.setCenter(new GeoPoint(-16695600,-49276500));
-        mapController.setZoom(14);
+        mapController.setZoom(20);
     }
 	
 	@Override
