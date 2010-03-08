@@ -31,7 +31,7 @@ public class BusLinePathMapOverlay extends Overlay {
         //paint.setTextSize(14);
 		paint.setStrokeWidth(3);
         paint.setStyle(Style.FILL);
-        paint.setARGB(255, 80, 150, 30); // Nice strong Android-Green
+        paint.setARGB(255, 80, 150, 30);
 
         Point previousPoint = null;
         for(GeoPoint stop : path){
