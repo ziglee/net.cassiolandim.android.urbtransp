@@ -2,7 +2,13 @@ package net.cassiolandim.android.urbtransp.map;
 
 import java.util.List;
 
+import net.cassiolandim.android.urbtransp.R;
+import net.cassiolandim.android.urbtransp.activity.BusStopDetailsActivity;
 import net.cassiolandim.android.urbtransp.entity.BusStop;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Point;
@@ -31,10 +37,13 @@ public class BusStopMapOverlay extends Overlay {
         paint.setStyle(Style.FILL);
         paint.setARGB(80, 100, 50, 30);
 
+        Bitmap bitmap = BitmapFactory.decodeResource(mapView.getResources(), R.drawable.ic_map_marker);
+        
 		Projection projection = mapView.getProjection();
         for(BusStop stop : stops){
         	Point point = projection.toPixels(stop.geoPoint, null);
         	canvas.drawPoint(point.x, point.y, paint);
+        	canvas.drawBitmap(bitmap, point.x -16, point.y -32, new Paint());
         }
 	}
 
@@ -45,13 +54,19 @@ public class BusStopMapOverlay extends Overlay {
 			int lat = stopGeoPoint.getLatitudeE6();
 			int lon = stopGeoPoint.getLongitudeE6();
 			
-			return(isBetweenLimits(geoPoint.getLatitudeE6(), lat) && isBetweenLimits(geoPoint.getLongitudeE6(), lon));
+			if(isBetweenLimits(geoPoint.getLatitudeE6(), lat) && isBetweenLimits(geoPoint.getLongitudeE6(), lon)){
+				Context context = mapView.getContext();
+				Intent i = new Intent(context, BusStopDetailsActivity.class);
+				i.putExtra(BusStop.BUS_STOP_ID, stop.id);
+				context.startActivity(i);
+				return true;
+			}
 		}
 		
 		return false;
 	}
 	
 	private static boolean isBetweenLimits(int sample, int target){
-		return (sample > (target - 500) && sample < (target + 500));
+		return (sample > (target - 150) && sample < (target + 150));
 	}
 }

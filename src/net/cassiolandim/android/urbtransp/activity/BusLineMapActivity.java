@@ -8,10 +8,11 @@ import net.cassiolandim.android.urbtransp.entity.BusStop;
 import net.cassiolandim.android.urbtransp.map.BusLinePathMapOverlay;
 import net.cassiolandim.android.urbtransp.map.BusStopMapOverlay;
 import net.cassiolandim.android.urbtransp.service.BusLineService;
-import net.cassiolandim.android.urbtransp.service.FakeBusLineService;
 import net.cassiolandim.android.urbtransp.service.BusStopService;
+import net.cassiolandim.android.urbtransp.service.FakeBusLineService;
 import net.cassiolandim.android.urbtransp.service.FakeBusStopService;
 import android.content.Context;
+import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.Menu;
@@ -46,7 +47,7 @@ public class BusLineMapActivity extends MapActivity {
         Bundle extras = getIntent().getExtras();
 	    Long id = extras.getLong(BusLine.BUS_LINE_ID);
 	    busLine = busLineService.findById(id);
-	    stops = busStopService.findByLine(id);
+	    stops = busStopService.find(busLine);
         
         locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
         mapView = (MapView) findViewById(R.id.mapview);
@@ -73,10 +74,17 @@ public class BusLineMapActivity extends MapActivity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 	    switch (item.getItemId()) {
 	    case MENU_MY_POSITION:
-	    	Toast.makeText(this, "Exibir minha posição no mapa!", Toast.LENGTH_SHORT).show();
-	    	GeoPoint point = new GeoPoint(-16695600,-49276500);
-	    	mapController.animateTo(point);
-	        return true;
+	    	Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+	    	if(location == null) location = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+	    	if(location != null){
+		    	int lat = (int) (location.getLatitude() * 1E6);
+		    	int lon = (int) (location.getLongitude() * 1E6);
+		    	GeoPoint point = new GeoPoint(lat, lon);
+		    	mapController.animateTo(point);
+		        return true;
+	    	}else{
+	    		Toast.makeText(this, "Não foi possível encontrar sua localização", Toast.LENGTH_SHORT).show();
+	    	}
 	    }
 	    return false;
 	}

@@ -25,24 +25,26 @@ public final class R {
         public static final int bus_line_details_area_img=0x7f050001;
         public static final int bus_line_details_name=0x7f050002;
         public static final int bus_line_details_number=0x7f050000;
-        public static final int bus_line_search_button=0x7f050007;
-        public static final int bus_line_search_field=0x7f050006;
-        public static final int itinerary_district=0x7f05000b;
-        public static final int itinerary_street=0x7f05000a;
+        public static final int bus_line_search_button=0x7f050008;
+        public static final int bus_line_search_field=0x7f050007;
+        public static final int bus_stop_details_id=0x7f050006;
+        public static final int itinerary_district=0x7f05000c;
+        public static final int itinerary_street=0x7f05000b;
         public static final int mainlayout=0x7f050003;
         public static final int mapview=0x7f050004;
-        public static final int text1=0x7f050008;
-        public static final int text2=0x7f050009;
+        public static final int text1=0x7f050009;
+        public static final int text2=0x7f05000a;
         public static final int zoomview=0x7f050005;
     }
     public static final class layout {
         public static final int bus_line_details=0x7f030000;
         public static final int bus_map=0x7f030001;
-        public static final int busline_list=0x7f030002;
-        public static final int complex_row=0x7f030003;
-        public static final int itinerary_list=0x7f030004;
-        public static final int main=0x7f030005;
-        public static final int twoline_row=0x7f030006;
+        public static final int bus_stop_details=0x7f030002;
+        public static final int busline_list=0x7f030003;
+        public static final int complex_row=0x7f030004;
+        public static final int itinerary_list=0x7f030005;
+        public static final int main=0x7f030006;
+        public static final int twoline_row=0x7f030007;
     }
     public static final class string {
         public static final int api_key=0x7f040001;

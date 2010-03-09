@@ -37,6 +37,7 @@ public class BusMapActivity extends MapActivity {
 
 	private static final int MENU_MY_POSITION = 1;
 	private static final int MENU_SEARCH_LINE = 2;
+	private static final int MENU_EXIT = 3;
 	
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -75,6 +76,7 @@ public class BusMapActivity extends MapActivity {
 	public boolean onCreateOptionsMenu(Menu menu) {
 	    menu.add(0, MENU_MY_POSITION, 0, "Meu local").setIcon(android.R.drawable.ic_menu_mylocation);
 	    menu.add(0, MENU_SEARCH_LINE, 1, "Buscar linhas").setIcon(android.R.drawable.ic_menu_myplaces);
+	    menu.add(0, MENU_EXIT, 2, "Sair").setIcon(android.R.drawable.ic_menu_delete);
 	    return true;
 	}
 
@@ -91,6 +93,10 @@ public class BusMapActivity extends MapActivity {
 	    	Intent i = new Intent(this, BusLineListActivity.class);
 	    	startActivity(i);
 	        return true;
+	        
+	    case MENU_EXIT:
+	    	finish();
+	    	return true;
 	    }
 	    
 	    return false;
