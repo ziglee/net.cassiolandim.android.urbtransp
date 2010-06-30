@@ -12,7 +12,7 @@
 	
 	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 		android:layout_width="fill_parent" 
-		android:layout_height="fill_parent" 
+		android:layout_height="wrap_content" 
 		android:orientation="horizontal">
 			
 		<ImageView android:id="@+id/bus_line_details_area_img" 
@@ -24,5 +24,32 @@
 			android:id="@+id/bus_line_details_name"
 			android:layout_marginTop="3dip" 
 			android:layout_marginLeft="3dip"/>
+	</LinearLayout>
+	
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="fill_parent" 
+		android:layout_height="fill_parent" 
+		android:orientation="vertical"
+		android:gravity="bottom">
+		
+		<Button android:id="@+id/button_itinerary_back"  
+			android:layout_width="fill_parent" 
+			android:layout_height="wrap_content"
+			android:text="Itinerário volta"/>
+			
+		<Button android:id="@+id/button_itinerary_going"  
+			android:layout_width="fill_parent" 
+			android:layout_height="wrap_content"
+			android:text="Itinerário ida"/>
+			
+		<Button android:id="@+id/button_show_on_map"  
+			android:layout_width="fill_parent" 
+			android:layout_height="wrap_content"
+			android:text="Mostrar no mapa"/>
+			
+		<Button android:id="@+id/button_show_schedule"
+			android:layout_width="fill_parent" 
+			android:layout_height="wrap_content"
+			android:text="Tabela de horários"/>
 	</LinearLayout>
 </LinearLayout>

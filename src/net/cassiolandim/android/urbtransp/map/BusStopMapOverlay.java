@@ -37,14 +37,14 @@ public class BusStopMapOverlay extends Overlay {
         paint.setStyle(Style.FILL);
         paint.setARGB(80, 100, 50, 30);
 
-        Bitmap bitmap = BitmapFactory.decodeResource(mapView.getResources(), R.drawable.ic_map_marker);
+        Bitmap bitmap = BitmapFactory.decodeResource(mapView.getResources(), R.drawable.flag_blue);
         
 		Projection projection = mapView.getProjection();
         for(BusStop stop : stops){
         	Point point = new Point(); 
         	projection.toPixels(stop.geoPoint, point);
         	canvas.drawPoint(point.x, point.y, paint);
-        	canvas.drawBitmap(bitmap, (point.x - 8), (point.y - 16), null);
+        	canvas.drawBitmap(bitmap, (point.x - 6), (point.y - 32), null);
         }
 	}
 
@@ -71,10 +71,10 @@ public class BusStopMapOverlay extends Overlay {
 	}
 	
 	private static boolean isBetweenXLimits(int sample, int target){
-		return (sample > (target - 8) && sample < (target + 8));
+		return (sample > (target - 16) && sample < (target + 16));
 	}
 	
 	private static boolean isBetweenYLimits(int sample, int target){
-		return (sample > (target - 16) && sample < (target));
+		return (sample > (target - 32) && sample < (target));
 	}
 }
