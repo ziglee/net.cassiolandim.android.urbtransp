@@ -19,9 +19,7 @@ public class MainActivity extends TabActivity {
 		TabHost.TabSpec spec; // Resusable TabSpec for each tab
 		Intent intent; // Reusable Intent for each tab
 
-		// Create an Intent to launch an Activity for the tab (to be reused)
 		intent = new Intent().setClass(this, BusMapActivity.class);
-		// Initialize a TabSpec for each tab and add it to the TabHost
 		spec = tabHost.newTabSpec("map").setIndicator("Mapa", res.getDrawable(android.R.drawable.ic_dialog_map)).setContent(intent);
 		tabHost.addTab(spec);
 		

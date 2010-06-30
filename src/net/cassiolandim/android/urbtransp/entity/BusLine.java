@@ -16,7 +16,7 @@ public class BusLine implements Serializable {
 	public Long id;
 	public String number;
 	public String name;
-	public Area area;
+	public LineRegion area;
 	public LineKind lineKind;
 	public ArrayList<ItineraryPoint> wayGoing;
 	public ArrayList<ItineraryPoint> wayBack;
@@ -26,7 +26,7 @@ public class BusLine implements Serializable {
 		this.id = id;
 	}
 	
-	public BusLine(Long id, String number, String name, Area area, LineKind lineKind, ArrayList<ItineraryPoint> wayGoing, ArrayList<ItineraryPoint> wayBack, List<GeoPoint> path) {
+	public BusLine(Long id, String number, String name, LineRegion area, LineKind lineKind, ArrayList<ItineraryPoint> wayGoing, ArrayList<ItineraryPoint> wayBack, List<GeoPoint> path) {
 		this.id = id;
 		this.number = number;
 		this.name = name;

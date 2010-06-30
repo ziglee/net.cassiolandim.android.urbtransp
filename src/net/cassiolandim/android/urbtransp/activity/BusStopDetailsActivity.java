@@ -31,7 +31,7 @@ public class BusStopDetailsActivity extends ListActivity {
 	    busStop = busStopService.findById(id);
 	    
 	    TextView number = (TextView)findViewById(R.id.bus_stop_details_id);
-	    number.setText(busStop.id);
+	    number.setText(busStop.id + " " + busStop.address);
 	    
 	    getListView().setAdapter(new ComplexBusLineRowAdapter(this, busStop.lines, busLineService));
 		getListView().setTextFilterEnabled(true);

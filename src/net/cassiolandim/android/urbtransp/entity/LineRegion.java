@@ -2,7 +2,7 @@ package net.cassiolandim.android.urbtransp.entity;
 
 import net.cassiolandim.android.urbtransp.R;
 
-public enum Area {
+public enum LineRegion {
 
 	ALL ("Todas"),
 	SOUTH ("Sul"),
@@ -11,7 +11,7 @@ public enum Area {
 	
 	private final String name;
 	
-	private Area(String name) {
+	private LineRegion(String name) {
 		this.name = name;
 	}
 	

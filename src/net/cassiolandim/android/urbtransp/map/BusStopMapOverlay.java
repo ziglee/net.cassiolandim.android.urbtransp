@@ -41,20 +41,24 @@ public class BusStopMapOverlay extends Overlay {
         
 		Projection projection = mapView.getProjection();
         for(BusStop stop : stops){
-        	Point point = projection.toPixels(stop.geoPoint, null);
+        	Point point = new Point(); 
+        	projection.toPixels(stop.geoPoint, point);
         	canvas.drawPoint(point.x, point.y, paint);
-        	canvas.drawBitmap(bitmap, point.x -16, point.y -32, new Paint());
+        	canvas.drawBitmap(bitmap, (point.x - 8), (point.y - 16), null);
         }
 	}
 
 	@Override
 	public boolean onTap(GeoPoint geoPoint, MapView mapView) {
+		Projection projection = mapView.getProjection();
+		Point tappedPoint = new Point(); 
+    	projection.toPixels(geoPoint, tappedPoint);
+    	
 		for(BusStop stop : stops){
-			GeoPoint stopGeoPoint = stop.geoPoint;
-			int lat = stopGeoPoint.getLatitudeE6();
-			int lon = stopGeoPoint.getLongitudeE6();
+			Point point = new Point(); 
+        	projection.toPixels(stop.geoPoint, point);
 			
-			if(isBetweenLimits(geoPoint.getLatitudeE6(), lat) && isBetweenLimits(geoPoint.getLongitudeE6(), lon)){
+			if(isBetweenXLimits(tappedPoint.x, point.x) && isBetweenYLimits(tappedPoint.y, point.y)){
 				Context context = mapView.getContext();
 				Intent i = new Intent(context, BusStopDetailsActivity.class);
 				i.putExtra(BusStop.BUS_STOP_ID, stop.id);
@@ -66,7 +70,11 @@ public class BusStopMapOverlay extends Overlay {
 		return false;
 	}
 	
-	private static boolean isBetweenLimits(int sample, int target){
-		return (sample > (target - 150) && sample < (target + 150));
+	private static boolean isBetweenXLimits(int sample, int target){
+		return (sample > (target - 8) && sample < (target + 8));
+	}
+	
+	private static boolean isBetweenYLimits(int sample, int target){
+		return (sample > (target - 16) && sample < (target));
 	}
 }

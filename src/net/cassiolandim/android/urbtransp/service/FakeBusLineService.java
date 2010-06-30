@@ -6,7 +6,7 @@ import java.util.List;
 
 import com.google.android.maps.GeoPoint;
 
-import net.cassiolandim.android.urbtransp.entity.Area;
+import net.cassiolandim.android.urbtransp.entity.LineRegion;
 import net.cassiolandim.android.urbtransp.entity.BusLine;
 import net.cassiolandim.android.urbtransp.entity.ItineraryPoint;
 import net.cassiolandim.android.urbtransp.entity.LineKind;
@@ -53,15 +53,15 @@ public class FakeBusLineService implements BusLineService {
 		Collections.reverse(wayReverse);
 		
 		long id = 0;
-		lines.add(new BusLine(++id, "004", "T. Garavelo / Centro - Eixo T - 9", Area.SOUTH, LineKind.AXIS, way, wayReverse, path));
-		lines.add(new BusLine(++id, "021", "Flamboyant / T. da Bíblia", Area.SOUTH, LineKind.FEEDER, way, wayReverse, path));
-		lines.add(new BusLine(++id, "027", "T. Bandeiras / T. da Bíblia - Via T - 7", Area.SOUTH, LineKind.AXIS, way, wayReverse, path));
-		lines.add(new BusLine(++id, "035", "T. Garavelo / Centro - Eixo T - 63", Area.EAST, LineKind.AXIS, way, wayReverse, path));
-		lines.add(new BusLine(++id, "052", "Vera Cruz / Campinas / Centro", Area.WEST, LineKind.AXIS, way, wayReverse, path));
-		lines.add(new BusLine(++id, "107", "T. Vl. Brasília / T. Cruzeiro", Area.SOUTH, LineKind.AXIS, way, wayReverse, path));
-		lines.add(new BusLine(++id, "501", "T. Garavelo / Goiânia Park Sul", Area.WEST, LineKind.EXPRESS, way, wayReverse, path));
-		lines.add(new BusLine(++id, "204", "PC Laranjeiras / Pq. Santa Cruz", Area.SOUTH, LineKind.FEEDER, way, wayReverse, path));
-		lines.add(new BusLine(++id, "600", "Santa Luzia / Centro", Area.SOUTH, LineKind.EXPRESS, way, wayReverse, path));
+		lines.add(new BusLine(++id, "004", "T. Garavelo / Centro - Eixo T - 9", LineRegion.SOUTH, LineKind.AXIS, way, wayReverse, path));
+		lines.add(new BusLine(++id, "021", "Flamboyant / T. da Bíblia", LineRegion.SOUTH, LineKind.FEEDER, way, wayReverse, path));
+		lines.add(new BusLine(++id, "027", "T. Bandeiras / T. da Bíblia - Via T - 7", LineRegion.SOUTH, LineKind.AXIS, way, wayReverse, path));
+		lines.add(new BusLine(++id, "035", "T. Garavelo / Centro - Eixo T - 63", LineRegion.EAST, LineKind.AXIS, way, wayReverse, path));
+		lines.add(new BusLine(++id, "052", "Vera Cruz / Campinas / Centro", LineRegion.WEST, LineKind.AXIS, way, wayReverse, path));
+		lines.add(new BusLine(++id, "107", "T. Vl. Brasília / T. Cruzeiro", LineRegion.SOUTH, LineKind.AXIS, way, wayReverse, path));
+		lines.add(new BusLine(++id, "501", "T. Garavelo / Goiânia Park Sul", LineRegion.WEST, LineKind.EXPRESS, way, wayReverse, path));
+		lines.add(new BusLine(++id, "204", "PC Laranjeiras / Pq. Santa Cruz", LineRegion.SOUTH, LineKind.FEEDER, way, wayReverse, path));
+		lines.add(new BusLine(++id, "600", "Santa Luzia / Centro", LineRegion.SOUTH, LineKind.EXPRESS, way, wayReverse, path));
 	}
 	
 	public List<BusLine> findAll() {
@@ -97,7 +97,7 @@ public class FakeBusLineService implements BusLineService {
 		return lines;
 	}
 
-	public List<BusLine> find(Area area) {
+	public List<BusLine> find(LineRegion area) {
 		List<BusLine> lines = new ArrayList<BusLine>();
 		
 		for(BusLine line : findAll()){
@@ -107,7 +107,7 @@ public class FakeBusLineService implements BusLineService {
 		return lines;
 	}
 
-	public List<BusLine> find(LineKind lineKind, Area area) {
+	public List<BusLine> find(LineKind lineKind, LineRegion area) {
 		List<BusLine> lines = new ArrayList<BusLine>();
 		
 		for(BusLine line : findAll()){
