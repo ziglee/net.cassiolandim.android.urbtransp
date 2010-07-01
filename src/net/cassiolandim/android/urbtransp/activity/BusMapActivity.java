@@ -37,7 +37,8 @@ public class BusMapActivity extends MapActivity {
 
 	private static final int MENU_MY_POSITION = 1;
 	private static final int MENU_SEARCH_LINE = 2;
-	private static final int MENU_EXIT = 3;
+	private static final int MENU_CONF = 3;
+	private static final int MENU_EXIT = 4;
 	
 	public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,7 +55,7 @@ public class BusMapActivity extends MapActivity {
         
         locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
         mapView = (MapView) findViewById(R.id.mapview);
-        drawable = this.getResources().getDrawable(android.R.drawable.ic_input_add);
+        drawable = this.getResources().getDrawable(R.drawable.user);
         linearLayout = (LinearLayout) findViewById(R.id.zoomview);
         linearLayout.addView(mapView.getZoomControls());
 
@@ -74,9 +75,10 @@ public class BusMapActivity extends MapActivity {
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-	    menu.add(0, MENU_MY_POSITION, 0, "Meu local").setIcon(android.R.drawable.ic_menu_mylocation);
-	    menu.add(0, MENU_SEARCH_LINE, 1, "Buscar linhas").setIcon(android.R.drawable.ic_menu_myplaces);
-	    menu.add(0, MENU_EXIT, 2, "Sair").setIcon(android.R.drawable.ic_menu_delete);
+	    menu.add(0, MENU_MY_POSITION, 0, "Meu local").setIcon(R.drawable.flag);
+	    menu.add(0, MENU_SEARCH_LINE, 1, "Buscar linhas").setIcon(R.drawable.search);
+	    menu.add(0, MENU_CONF, 2, "Conf").setIcon(R.drawable.system);
+	    menu.add(0, MENU_EXIT, 3, "Sair").setIcon(R.drawable.close);
 	    return true;
 	}
 
@@ -94,6 +96,10 @@ public class BusMapActivity extends MapActivity {
 	    	startActivity(i);
 	        return true;
 	        
+	    case MENU_CONF:
+	    	Toast.makeText(this, "Exibir configurações", Toast.LENGTH_SHORT).show();
+	    	return true;
+	    	
 	    case MENU_EXIT:
 	    	finish();
 	    	return true;

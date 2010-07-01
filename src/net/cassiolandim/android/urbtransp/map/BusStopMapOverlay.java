@@ -37,7 +37,7 @@ public class BusStopMapOverlay extends Overlay {
         paint.setStyle(Style.FILL);
         paint.setARGB(80, 100, 50, 30);
 
-        Bitmap bitmap = BitmapFactory.decodeResource(mapView.getResources(), R.drawable.flag_blue);
+        Bitmap bitmap = BitmapFactory.decodeResource(mapView.getResources(), R.drawable.thumbtack_blue);
         
 		Projection projection = mapView.getProjection();
         for(BusStop stop : stops){

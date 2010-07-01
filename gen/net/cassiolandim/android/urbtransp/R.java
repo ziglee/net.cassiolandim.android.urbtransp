@@ -18,14 +18,21 @@ public final class R {
         public static final int area_sul_home=0x7f020004;
         public static final int area_sul_nav=0x7f020005;
         public static final int area_todas_nav=0x7f020006;
-        public static final int direction_left=0x7f020007;
-        public static final int direction_right=0x7f020008;
-        public static final int earth=0x7f020009;
-        public static final int flag_blue=0x7f02000a;
-        public static final int ic_map_marker=0x7f02000b;
-        public static final int icon=0x7f02000c;
-        public static final int shoppingcart_checkout=0x7f02000d;
-        public static final int thumbtack_blue=0x7f02000e;
+        public static final int box=0x7f020007;
+        public static final int clock=0x7f020008;
+        public static final int close=0x7f020009;
+        public static final int flag=0x7f02000a;
+        public static final int flag_blue=0x7f02000b;
+        public static final int flag_grande=0x7f02000c;
+        public static final int icon=0x7f02000d;
+        public static final int redo=0x7f02000e;
+        public static final int search=0x7f02000f;
+        public static final int system=0x7f020010;
+        public static final int thumbtack_blue=0x7f020011;
+        public static final int undo=0x7f020012;
+        public static final int user=0x7f020013;
+        public static final int web=0x7f020014;
+        public static final int zoom=0x7f020015;
     }
     public static final class id {
         public static final int bus_line_details_area_img=0x7f050001;
@@ -60,6 +67,9 @@ public final class R {
         public static final int api_key=0x7f040001;
         public static final int app_name=0x7f040000;
         public static final int debug_key=0x7f040002;
+        public static final int local_service_label=0x7f040006;
+        public static final int local_service_started=0x7f040004;
+        public static final int local_service_stopped=0x7f040005;
         public static final int no_lines=0x7f040003;
     }
 }

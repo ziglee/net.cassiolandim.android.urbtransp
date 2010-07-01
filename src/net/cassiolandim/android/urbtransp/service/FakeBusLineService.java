@@ -80,8 +80,9 @@ public class FakeBusLineService implements BusLineService {
 		List<BusLine> lines = new ArrayList<BusLine>();
 		
 		for(BusLine line : findAll()){
-			if(line.name.indexOf(search) >= 0 ||
-					line.number.indexOf(search) >= 0) lines.add(line);
+			if(line.name.toLowerCase().contains(search.toLowerCase()) || line.number.indexOf(search) >= 0){
+				lines.add(line);
+			}
 		}
 		
 		return lines;

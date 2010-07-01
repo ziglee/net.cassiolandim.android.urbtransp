@@ -26,30 +26,53 @@
 			android:layout_marginLeft="3dip"/>
 	</LinearLayout>
 	
-	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	<LinearLayout
 		android:layout_width="fill_parent" 
 		android:layout_height="fill_parent" 
 		android:orientation="vertical"
-		android:gravity="bottom">
+		android:gravity="bottom"
+		android:paddingBottom="10dp">
 		
-		<Button android:id="@+id/button_itinerary_back"  
+		<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
 			android:layout_width="fill_parent" 
-			android:layout_height="wrap_content"
-			android:text="Itinerário volta"/>
+			android:layout_height="wrap_content" 
+			android:orientation="horizontal" 
+			android:gravity="center"
+			android:paddingBottom="10dp">
 			
-		<Button android:id="@+id/button_itinerary_going"  
-			android:layout_width="fill_parent" 
-			android:layout_height="wrap_content"
-			android:text="Itinerário ida"/>
+			<ImageView android:id="@+id/button_itinerary_back"
+				android:src="@drawable/undo"
+				android:layout_height="wrap_content" 
+				android:layout_width="wrap_content" 
+				android:paddingRight="30dp">
+			</ImageView>
 			
-		<Button android:id="@+id/button_show_on_map"  
+			<ImageView android:id="@+id/button_itinerary_going"
+				android:src="@drawable/redo"
+				android:layout_height="wrap_content" 
+				android:layout_width="wrap_content" 
+				android:paddingLeft="30dp">
+			</ImageView>
+		</LinearLayout>
+		
+		<LinearLayout
 			android:layout_width="fill_parent" 
-			android:layout_height="wrap_content"
-			android:text="Mostrar no mapa"/>
+			android:layout_height="wrap_content" 
+			android:orientation="horizontal" android:gravity="center">
 			
-		<Button android:id="@+id/button_show_schedule"
-			android:layout_width="fill_parent" 
-			android:layout_height="wrap_content"
-			android:text="Tabela de horários"/>
+			<ImageView android:id="@+id/button_show_on_map"
+				android:src="@drawable/web"
+				android:layout_height="wrap_content" 
+				android:layout_width="wrap_content" 
+				android:paddingRight="30dp">
+			</ImageView>
+			
+			<ImageView android:id="@+id/button_show_schedule"
+				android:src="@drawable/clock"
+				android:layout_height="wrap_content" 
+				android:layout_width="wrap_content" 
+				android:paddingLeft="30dp">
+			</ImageView>
+		</LinearLayout>
 	</LinearLayout>
 </LinearLayout>
