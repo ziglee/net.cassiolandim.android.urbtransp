@@ -14,7 +14,6 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.google.android.maps.GeoPoint;
@@ -29,7 +28,6 @@ public class BusMapActivity extends MapActivity {
 	private BusLineService busLineService = new FakeBusLineService();
 	private MapView mapView;
 	private MapController mapController;
-	private LinearLayout linearLayout;
 	private List<Overlay> mapOverlays;
 	private Drawable drawable;
 	private ListItemizedOverlay itemizedOverlay;
@@ -55,9 +53,8 @@ public class BusMapActivity extends MapActivity {
         
         locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
         mapView = (MapView) findViewById(R.id.mapview);
+        mapView.setBuiltInZoomControls(true);
         drawable = this.getResources().getDrawable(R.drawable.user);
-        linearLayout = (LinearLayout) findViewById(R.id.zoomview);
-        linearLayout.addView(mapView.getZoomControls());
 
         mapOverlays = mapView.getOverlays();
         mapController = mapView.getController();

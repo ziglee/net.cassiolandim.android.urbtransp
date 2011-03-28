@@ -38,20 +38,19 @@ public final class R {
         public static final int bus_line_details_area_img=0x7f050001;
         public static final int bus_line_details_name=0x7f050002;
         public static final int bus_line_details_number=0x7f050000;
-        public static final int bus_line_search_button=0x7f05000c;
-        public static final int bus_line_search_field=0x7f05000b;
-        public static final int bus_stop_details_id=0x7f05000a;
+        public static final int bus_line_search_button=0x7f05000b;
+        public static final int bus_line_search_field=0x7f05000a;
+        public static final int bus_stop_details_id=0x7f050009;
         public static final int button_itinerary_back=0x7f050003;
         public static final int button_itinerary_going=0x7f050004;
         public static final int button_show_on_map=0x7f050005;
         public static final int button_show_schedule=0x7f050006;
-        public static final int itinerary_district=0x7f050010;
-        public static final int itinerary_street=0x7f05000f;
+        public static final int itinerary_district=0x7f05000f;
+        public static final int itinerary_street=0x7f05000e;
         public static final int mainlayout=0x7f050007;
         public static final int mapview=0x7f050008;
-        public static final int text1=0x7f05000d;
-        public static final int text2=0x7f05000e;
-        public static final int zoomview=0x7f050009;
+        public static final int text1=0x7f05000c;
+        public static final int text2=0x7f05000d;
     }
     public static final class layout {
         public static final int bus_line_details=0x7f030000;
